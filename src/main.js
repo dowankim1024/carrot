@@ -1,11 +1,15 @@
  'use strict';
 import PopUp from './popup.js';
-import Game from './game.js';
+import GameBuilder from './game.js';
 
 const gameFinishBanner = new PopUp();
 
 
-const game = new Game(5,5,5); 
+const game = new GameBuilder()
+.withGameDuration(60)
+.withCarrotCount(15)
+.withBugCount(10)
+.build();
 game.setGameStopListner((reason)=>{
     let message;
     switch(reason){
